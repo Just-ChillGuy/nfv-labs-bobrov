@@ -53,20 +53,7 @@ hq <== WireGuard wg-br 10.82.254.1/30 <-> wg-hq 10.82.254.2/30, UDP 13082 ==> br
 
 Порядок важен: правила проверяются сверху вниз. Правила для management (ether1) и WireGuard стоят выше запрещающих.
 
-## Состав репозитория
 
-```
-lab5/
-  lab5.clab.yml          топология containerlab
-  bootstrap.sh           полный запуск: deploy, hq, br, WireGuard, dc1
-  apply.sh               настройка dc1 (FRR) после deploy
-  configs/
-    hq.rsc               экспорт hq (/export terse)
-    br.rsc               экспорт br (/export terse)
-    dc1-frr.conf         running-config FRR на dc1
-    dc1.sh               команды настройки dc1
-  scripts/
-    rest-demo.sh         GET, PUT, PATCH, DELETE через REST API hq
 ```
 
 ## Требования
