@@ -1,0 +1,10 @@
+flush ruleset
+table netdev vnf_fw {
+  chain forward {
+    type filter hook ingress devices = { eth1, eth2 } priority 0; policy accept;
+    ip protocol tcp tcp dport ${FW_PORT} counter drop comment "block tcp/${FW_PORT}"
+    ip protocol tcp tcp dport 80 counter accept comment "allow http"
+    ip protocol icmp counter accept comment "allow icmp"
+    counter comment "other"
+  }
+}
